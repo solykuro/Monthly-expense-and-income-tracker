@@ -1,0 +1,116 @@
+.dash-section { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+
+/* 摘要 */
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: var(--brand);
+  color: var(--on-brand);
+  border-radius: 16px;
+}
+.summary .muted { color: var(--on-brand-soft); }
+.summary .negative { color: var(--deficit-on-brand); }
+.flow {
+  display: flex;
+  height: 14px;
+  border-radius: 7px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 0.22);
+  gap: 2px;
+}
+.flow-seg { display: block; min-width: 0; }
+.flow-seg--spend { background: rgb(255 255 255 / 0.45); }
+.flow-seg--reserve { background: var(--reserve-fill); }
+.flow-seg--invest { background: var(--on-brand); }
+
+.summary-values {
+  margin: 4px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px 20px;
+}
+.summary-value { display: flex; flex-direction: column; padding-left: 10px; border-left: 4px solid rgb(255 255 255 / 0.3); }
+.summary-value--invest { border-left-color: var(--on-brand); }
+.summary-value--reserve { border-left-color: var(--reserve-fill); }
+.summary-value dt { font-size: 12px; color: var(--on-brand-soft); }
+.summary-value dd { margin: 0; font-size: 18px; font-weight: 700; }
+.summary-value--reserve dd { color: var(--reserve-on-brand); }
+.summary-value--invest dd { font-size: 28px; line-height: 1.15; }
+
+/* 警示 */
+.notice { display: flex; flex-direction: column; gap: 8px; padding-left: 14px; border-left: 4px solid; }
+.notice--deficit { border-left-color: var(--deficit); }
+.notice--catchup { border-left-color: var(--reserve-fill); }
+.notice ul { list-style: none; margin: 0; padding: 0; }
+.notice-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+.notice-text { padding: 6px 0; font-size: 13px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+
+/* 圖表 */
+.chart { position: relative; height: 200px; width: 100%; }
+
+/* 表格 */
+.table-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.table-head .segmented { width: 160px; }
+.table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.projection-table { border-collapse: collapse; width: max-content; min-width: 100%; font-size: 13px; }
+.projection-table th, .projection-table td { padding: 0 12px; text-align: right; height: 44px; border-bottom: 1px solid var(--line); }
+.projection-table thead th { font-size: 12px; font-weight: 600; color: var(--ink-soft); white-space: nowrap; background: var(--surface); }
+.projection-table th[scope='row'], .projection-table thead th:first-child {
+  position: sticky;
+  left: 0;
+  text-align: left;
+  background: var(--surface);
+  padding: 0;
+  z-index: 1;
+}
+.projection-table thead th:first-child { padding: 0 12px; }
+.projection-table tbody tr:last-child > * { border-bottom: none; }
+.projection-table tr.is-negative > * { color: var(--deficit); background: var(--deficit-bg); }
+.projection-table tr:focus { outline: 3px solid var(--focus); outline-offset: -3px; }
+.row-link {
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  text-align: left;
+  color: inherit;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+}
+.partial { margin-left: 6px; font-size: 12px; font-weight: 400; color: var(--ink-soft); }
+
+/* 月份明細 */
+.detail-totals { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.detail-totals dt { font-size: 12px; color: var(--ink-soft); }
+.detail-totals dd { margin: 0; font-size: 18px; font-weight: 700; }
+.detail-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.detail-list li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.detail-main { display: flex; flex-direction: column; min-width: 0; }
+.detail-amount { font-weight: 600; }
+.detail-amount--income { color: var(--invest); }
+.tag { display: inline-block; margin-left: 8px; padding: 0 8px; border-radius: 10px; font-size: 12px; line-height: 20px; vertical-align: 1px; }
+.tag--reserve { background: var(--reserve-fill); color: var(--reserve-text); }
+.tag--catchup { background: var(--reserve-fill); color: var(--reserve-text); font-weight: 600; }
+.projection-table tbody tr[id] { cursor: pointer; }

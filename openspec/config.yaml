@@ -1,0 +1,18 @@
+schema: spec-driven
+
+context: |
+  專案：個人用的「固定收支規劃」手機工具（PWA），單一使用者、無後端。
+  目的：推演未來多年的固定收支，算出每月可投資金額，並為非每月支出（年繳、季繳等）預留資金。
+  技術棧：Vite + React + TypeScript、Dexie（IndexedDB）、Chart.js（react-chartjs-2）、vite-plugin-pwa。
+  測試：Vitest、@testing-library/react、fake-indexeddb。
+  慣例：
+    - 文件與介面文字使用繁體中文。
+    - 金額一律為新台幣整數（元），不使用浮點數儲存。
+    - 月份以字串 "YYYY-MM" 表示；計算時轉為連續月序號。
+    - 推演邏輯寫成純函式，放在 src/domain/，不依賴 React 或資料庫。
+
+rules:
+  proposal:
+    - 必須包含 Non-goals 區塊
+  tasks:
+    - 每個 spec Scenario 都要有對應的測試任務
